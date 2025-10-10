@@ -1,0 +1,15 @@
+<template>
+    <div>I am parent component. select your favourite cricketer</div>
+    <c-navbar-child-component navlist={navlist} onselection={selectedNavHandler}></c-navbar-child-component>
+
+    <template lwc:if={selectedPlayer}>
+         <div>
+                            <p><strong>Player Name:</strong> {selectedPlayer.name}</p>
+                            <p><strong>Ranking:</strong> {selectedPlayer.position}</p>
+                            <p><strong>country:</strong> {selectedPlayer.country}</p>
+                            <p><strong>Rating:</strong> {selectedPlayer.rating}</p>
+         </div>
+
+    </template>
+    
+</template>

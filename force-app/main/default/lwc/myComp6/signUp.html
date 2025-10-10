@@ -1,0 +1,100 @@
+<template>
+    <div class="template-container">
+        <lightning-card class="stylish-card">
+            <div class="card-header">
+                <div class="floating-shapes"></div>
+                <lightning-icon icon-name="standard:person_account" size="large" class="company-logo"></lightning-icon>
+                <h2>Account Access Request</h2>
+                <p class="header-subtitle">Submit a request for business portal access</p>
+            </div>
+            <div class="form-container">
+                <template lwc:if={errorMessage}>
+                    <div class="modern-alert alert-error" role="alert">
+                        <lightning-icon icon-name="utility:error" alternative-text="error" size="small"></lightning-icon>
+                        <h2>{errorMessage}</h2>
+                    </div>
+                </template>
+
+                <template lwc:if={successMessage}>
+                    <div class="modern-alert alert-success" role="alert">
+                        <lightning-icon icon-name="utility:success" alternative-text="success" size="small"></lightning-icon>
+                        <h2>{successMessage}</h2>
+                    </div>
+                </template>
+
+                <div class="modern-input">
+                    <lightning-input
+                        type="text"
+                        label="First Name"
+                        value={signUpFirstName}
+                        onchange={handleInputChange}
+                        data-field="signUpFirstName"
+                        required
+                        placeholder="Enter your first name">
+                    </lightning-input>
+                </div>
+
+                <div class="modern-input">
+                    <lightning-input
+                        type="text"
+                        label="Last Name"
+                        value={signUpLastName}
+                        onchange={handleInputChange}
+                        data-field="signUpLastName"
+                        required
+                        placeholder="Enter your last name">
+                    </lightning-input>
+                </div>
+
+                <div class="modern-input">
+                    <lightning-input
+                        type="email"
+                        label="Business Email Address"
+                        value={signUpEmail}
+                        onchange={handleInputChange}
+                        data-field="signUpEmail"
+                        required
+                        placeholder="Enter your company email address">
+                    </lightning-input>
+                </div>
+
+                <div class="modern-input">
+                    <lightning-input
+                        type="text"
+                        label="Department / Role"
+                        value={signUpPassword}
+                        onchange={handleInputChange}
+                        data-field="signUpPassword"
+                        required
+                        placeholder="Enter your department or role">
+                    </lightning-input>
+                </div>
+
+                <div class="form-actions">
+                    <div class="modern-btn btn-secondary">
+                        <lightning-button
+                            variant="base"
+                            label="Back"
+                            title="Return to Portal"
+                            onclick={handleClick}>
+                        </lightning-button>
+                    </div>
+
+                    <div class="modern-btn btn-primary">
+                        <lightning-button
+                            variant="base"
+                            label="Submit Request"
+                            title="Submit Access Request"
+                            onclick={submitHandler}>
+                        </lightning-button>
+                    </div>
+                </div>
+
+                <div class="security-notice">
+                    <lightning-icon icon-name="utility:clock" size="xx-small"></lightning-icon>
+                    Account requests are reviewed within 2-3 business days. You will receive an email confirmation.
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

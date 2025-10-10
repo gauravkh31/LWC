@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Tab for managing Tiffin orders and deliveries</description>
+    <motif>Custom48: Kangaroo</motif>
+    <label>Tiffins</label>
+</CustomTab>

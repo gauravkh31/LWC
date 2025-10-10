@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meal_Type__c</fullName>
+    <description>Type of meal (Breakfast, Lunch, Dinner, Snack)</description>
+    <externalId>false</externalId>
+    <label>Meal Type</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Breakfast</fullName>
+                <default>false</default>
+                <label>Breakfast</label>
+            </value>
+            <value>
+                <fullName>Lunch</fullName>
+                <default>true</default>
+                <label>Lunch</label>
+            </value>
+            <value>
+                <fullName>Dinner</fullName>
+                <default>false</default>
+                <label>Dinner</label>
+            </value>
+            <value>
+                <fullName>Snack</fullName>
+                <default>false</default>
+                <label>Snack</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

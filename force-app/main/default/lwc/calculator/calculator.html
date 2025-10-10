@@ -1,0 +1,78 @@
+<template>
+    <lightning-card title="Calculator" icon-name="custom:custom11">
+
+        <div class="slds-m-around_medium">
+            <!-- for input section -->
+             <lightning-input placeholder="Number 1" value={number1} label="Enter number 1 here" name="num1" onchange={inputhandleChange}></lightning-input>
+
+             
+
+
+             <lightning-input placeholder="Number 2" value={number2} label="Enter number 2 here" name="num2" onchange={inputhandleChange}></lightning-input>
+
+             
+        </div>
+
+
+        <div class="slds-m-around_medium">
+
+            <!-- for buttons section -->
+             <lightning-button
+             variant="brand"
+             label="Add"
+             class="slds-m-around_medium"
+             onclick={buttonHandler}>
+
+             </lightning-button>
+
+             <lightning-button
+             variant="brand"
+             label="Sub"
+             class="slds-m-around_medium"
+             onclick={buttonHandler}>
+
+             </lightning-button>
+
+
+
+             <lightning-button
+             variant="brand"
+             label="Mul"
+             class="slds-m-around_medium"
+             onclick={buttonHandler}>
+
+             </lightning-button>
+
+
+
+
+             <lightning-button
+             variant="brand"
+             label="Div"
+             class="slds-m-around_medium"
+             onclick={buttonHandler}>
+
+             </lightning-button>
+        </div>
+
+
+        <div class="slds-m-around_medium">
+
+
+            <!-- for output section -->
+        The Result is : {result}
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </lightning-card>
+    
+</template>

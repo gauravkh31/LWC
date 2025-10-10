@@ -1,0 +1,10 @@
+<template>
+    <button onclick={clickHandler}> Click Me To Show The Below Text</button>
+    <template  lwc:if={showText}>
+        <h1>Hii I am text.</h1>
+    </template>
+    <template  lwc:else >
+        <h1>Hii I am not text.</h1>
+    </template>
+    
+</template>

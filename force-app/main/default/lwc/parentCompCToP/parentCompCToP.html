@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Child to Parent Communication" style="color:green">
+        <div style="height:300px">
+            <button onclick={handlerOpenButton} >Click Me To Open Child</button>
+            
+                <template lwc:if={variable}>
+                    <c-child-comp-p-to-c   data="hello hello this child card" onclose={modelCloseHandler}></c-child-comp-p-to-c>
+            </template>
+        
+
+        </div>
+
+        </lightning-card>
+    
+        
+    
+</template>

@@ -1,0 +1,46 @@
+<template>
+    <div class="template-container">
+        <lightning-card class="stylish-card">
+            <div class="card-header">
+                <div class="floating-shapes"></div>
+                <lightning-icon icon-name="standard:portal" size="large" class="company-logo"></lightning-icon>
+                <h2>Business Portal Access</h2>
+                <p class="header-subtitle">Secure authentication for enterprise users</p>
+            </div>
+            <div class="form-container">
+                <div class="selection-container">
+                    <h3 class="selection-title">Please select an option to access your business account</h3>
+
+                    <div class="button-group">
+                        <div class="modern-btn btn-primary">
+                            <lightning-button
+                                variant="base"
+                                label="Sign In"
+                                title="Access Your Business Account"
+                                onclick={handleClick}>
+                            </lightning-button>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="button-group">
+                        <div class="modern-btn btn-secondary">
+                            <lightning-button
+                                variant="base"
+                                label="Request Account"
+                                title="Request New Business Account"
+                                onclick={handleClick}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-notice">
+                    <lightning-icon icon-name="utility:lock" size="xx-small"></lightning-icon>
+                    This is a secure business portal. All access is monitored and logged for security purposes.
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

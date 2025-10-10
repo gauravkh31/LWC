@@ -1,0 +1,7 @@
+<template>
+    <label for="">Enter percentage</label>
+    <input id="percentage" type="number" min="0" max="100" name="percentage" onkeyup={onKeyUpHandler} value={percentage} />
+    
+    <c-progress-bar-child-component percentage={percentage}></c-progress-bar-child-component>
+    
+</template>

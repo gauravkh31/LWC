@@ -1,0 +1,121 @@
+<template>
+    <div class="template-container signin-container">
+        <div class="signin-background">
+            <div class="floating-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="grid-pattern"></div>
+        </div>
+
+        <lightning-card class="stylish-card signin-card">
+            <div class="card-header signin-header">
+                <div class="header-pattern"></div>
+                <div class="company-logo-container">
+                    <div class="logo-backdrop"></div>
+                    <lightning-icon icon-name="standard:user" size="large" class="company-logo"></lightning-icon>
+                </div>
+                <h2 class="signin-title">Employee Portal</h2>
+                <p class="header-subtitle signin-subtitle">Secure access to your business dashboard</p>
+                <div class="header-accent-line"></div>
+            </div>
+
+            <div class="form-container signin-form">
+                <template lwc:if={errorMessage}>
+                    <div class="modern-alert alert-error stylish-alert" role="alert">
+                        <div class="alert-icon-wrapper">
+                            <lightning-icon icon-name="utility:error" alternative-text="error" size="small"></lightning-icon>
+                        </div>
+                        <h2>{errorMessage}</h2>
+                        <div class="alert-backdrop"></div>
+                    </div>
+                </template>
+
+                <template lwc:if={successMessage}>
+                    <div class="modern-alert alert-success stylish-alert" role="alert">
+                        <div class="alert-icon-wrapper">
+                            <lightning-icon icon-name="utility:success" alternative-text="success" size="small"></lightning-icon>
+                        </div>
+                        <h2>{successMessage}</h2>
+                        <div class="alert-backdrop"></div>
+                    </div>
+                </template>
+
+                <div class="form-fields">
+                    <div class="modern-input stylish-input">
+                        <div class="input-wrapper">
+                            <lightning-input
+                                type="text"
+                                label="Employee ID / Username"
+                                value={signInUsername}
+                                onchange={handleInputChange}
+                                data-field="signInUsername"
+                                required
+                                placeholder="Enter your employee ID or username"
+                                class="enhanced-input">
+                            </lightning-input>
+                            <div class="input-border-effect"></div>
+                            <div class="input-icon">
+                                <lightning-icon icon-name="utility:user" size="x-small"></lightning-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modern-input stylish-input">
+                        <div class="input-wrapper">
+                            <lightning-input
+                                type="password"
+                                label="Password"
+                                value={signInPassword}
+                                onchange={handleInputChange}
+                                data-field="signInPassword"
+                                required
+                                placeholder="Enter your password"
+                                class="enhanced-input">
+                            </lightning-input>
+                            <div class="input-border-effect"></div>
+                            <div class="input-icon">
+                                <lightning-icon icon-name="utility:lock" size="x-small"></lightning-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions stylish-actions">
+                    <div class="modern-btn btn-secondary stylish-btn">
+                        <lightning-button
+                            variant="base"
+                            label="Back"
+                            title="Return to Portal"
+                            onclick={handleClick}>
+                        </lightning-button>
+                        <div class="btn-backdrop"></div>
+                    </div>
+
+                    <div class="modern-btn btn-primary stylish-btn primary-action">
+                        <lightning-button
+                            variant="base"
+                            label="Sign In"
+                            title="Access Business Portal"
+                            onclick={submitHandler}>
+                        </lightning-button>
+                        <div class="btn-backdrop primary-backdrop"></div>
+                        <div class="btn-shine"></div>
+                    </div>
+                </div>
+
+                <div class="security-notice stylish-notice">
+                    <div class="notice-icon">
+                        <lightning-icon icon-name="utility:shield" size="xx-small"></lightning-icon>
+                    </div>
+                    <div class="notice-content">
+                        <span class="notice-text">Protected by enterprise-grade security</span>
+                        <span class="notice-subtext">Contact IT support if you need assistance</span>
+                    </div>
+                    <div class="notice-pattern"></div>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>

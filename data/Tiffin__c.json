@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Tiffin__c",
+        "referenceId": "TiffinRef1"
+      },
+      "Customer_Name__c": "Rajesh Kumar",
+      "Phone_Number__c": "+91 9876543210",
+      "Meal_Type__c": "Lunch",
+      "Price__c": 150.00,
+      "Delivery_Date__c": "2025-09-19",
+      "Status__c": "Ordered",
+      "Delivery_Address__c": "Office Block A, 4th Floor, Tech Park, Pune"
+    },
+    {
+      "attributes": {
+        "type": "Tiffin__c",
+        "referenceId": "TiffinRef2"
+      },
+      "Customer_Name__c": "Priya Sharma",
+      "Phone_Number__c": "+91 9123456789",
+      "Meal_Type__c": "Dinner",
+      "Price__c": 180.00,
+      "Delivery_Date__c": "2025-09-19",
+      "Status__c": "Preparing"
+    }
+  ]
+}

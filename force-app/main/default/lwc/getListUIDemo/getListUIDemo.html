@@ -1,0 +1,37 @@
+<template>
+   <lightning-card title="get List Data">
+   
+        <table style="border:1px solid black">
+        <thead>
+            <tr>
+                <th>Account Id</th>
+            
+                <th>Account Name</th>
+            
+                <th>Type</th>
+            
+                <th>Phone</th>
+            </tr>
+        
+        </thead>
+        <tbody>
+            <template lwc:if={accResult.length}>
+                <template for:each={accResult} for:item="item">
+                    <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.type}</td>
+                        <td>{item.phone}</td>
+                    </tr>
+                </template>
+            </template>
+            <template lwc:else>
+                <p>List View Has No Data.</p>
+            </template>
+            
+        </tbody>
+        </table>
+
+   
+   </lightning-card>
+</template>

@@ -1,0 +1,56 @@
+<template>
+
+
+    <lightning-card title="Full Name Generator" icon-name="custom:custom11">
+
+
+
+
+
+
+        <div class="slds-m-around_medium">
+            <!-- input fname and lname section -->
+
+            <lightning-input 
+            label="Enter first name here" 
+            placeholder="First Name Here" 
+            value={firstName} 
+            onchange={inputHandler}
+            name="fname">
+            
+        </lightning-input>
+
+
+
+        <lightning-input 
+            label="Enter last name here" 
+            placeholder="Last  Name Here" 
+            value={lastName} 
+            onchange={inputHandler}
+            name="lname">
+        </lightning-input>
+
+            
+        </div>
+
+
+
+
+        <div class="slds-m-around_medium">
+            <!-- button section here -->
+             <lightning-button
+             label="Click To Generate Full Name"
+             variant="brand"
+             onclick={buttonHandler}></lightning-button>
+        </div>
+
+
+        <div class="slds-m-around_medium">
+            <!-- output section here -->
+
+            Here is you full name in Upper Case - {fullName}
+        </div>
+
+    </lightning-card>
+    
+</template>

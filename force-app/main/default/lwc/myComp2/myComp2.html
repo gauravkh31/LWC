@@ -1,0 +1,79 @@
+<template>
+    <lightning-card title="for:each demo with array" icon-name="custom:custom14">
+    <ul class="slds-m-around_medium">
+      <template for:each={carList} for:item="car">
+        <a href="#" class="list-group-item list-group-item-action" key={car}
+          >{car}</a
+        >
+      </template>
+    </ul>
+  </lightning-card>
+
+
+
+
+   <hr />
+   <hr />
+   <hr />
+   <hr />
+
+  <lightning-card
+    title="for:each demo with array of objects"
+    icon-name="custom:custom14"
+  >
+    <ul class="slds-m-around_medium">
+      <template for:each={programmingList} for:item="program">
+        <a
+          href="#"
+          class="list-group-item list-group-item-action"
+          key={program.id}
+          >{program.id} "    " {program.language}</a
+        >
+      </template>
+    </ul>
+  </lightning-card>
+  <!-- <template iterator:ceo={ceoList}>
+    <div key={ceo.value.id}>
+        <h2 if:true={ceo.first}>
+                THIS IS THE LIST OF CEOS AND {ceo.value.name} & {ceo.value.company}
+        </h2>
+        <h2>
+            {ceo.value.name} & {ceo.value.company}
+        </h2>
+        <h2 if:true={ceo.last}>
+                THIS IS THE End OF LIST OF CEOS AND {ceo.value.name} & {ceo.value.company}
+        </h2>
+    </div>
+
+
+
+  </template> -->
+  <lightning-card title="Iterator loop demo" icon-name="custom:custom14">
+      <ul class="slds-m-around_medium">
+        <div class="list-group-inline">
+          <template iterator:ceo={ceoList}>
+            <div key={ceo.value.id}>
+              <a
+                href="#"
+                if:true={ceo.first}
+                class="list-group-item list-group-item-action header"
+              >
+                <strong>List of top companies and there CEO's : </strong>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <strong>{ceo.value.company} : </strong>{ceo.value.name}
+              </a>
+              <a
+                href="#"
+                if:true={ceo.last}
+                class="list-group-item list-group-item-action footer"
+              >
+                <strong>&copy; 2019 Lightning school salesforce </strong>
+              </a>
+            </div>
+          </template>
+        </div>
+      </ul>
+    </lightning-card>
+  
+</template>
