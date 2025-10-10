@@ -56,12 +56,16 @@
         </div>
 
 
-        <div class="slds-m-around_medium">
+
+        <template lwc:if={displayMessage}>
+<div class="slds-m-around_medium">
 
 
             <!-- for output section -->
         The Result is : {result}
         </div>
+        </template>
+        
 
 
 

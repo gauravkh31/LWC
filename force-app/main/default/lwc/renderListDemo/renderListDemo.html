@@ -1,0 +1,52 @@
+<template>
+
+
+    <lightning-card title="for each rendering demo" icon-name="custom:custom11">
+        <div class="slds-var-p-around_medium">
+            <template for:each={superStars} for:item="star" >
+                <p key={star} >{star}</p>
+            </template>
+
+
+
+            <template for:each={arrayOfObjects} for:item="aof">
+                <div key={aof.id}>
+                    <h1 > firstName is : {aof.fname} and lastName is : {aof.lname} and age is : {aof.age}</h1>
+                    
+                </div>
+
+            
+
+            </template>
+
+
+
+
+
+        </div>
+
+    </lightning-card>
+
+
+
+
+    <lightning-card title="itertor rendering demo" icon-name="custom:custom11">
+        <div class="slds-var-p-around_medium">
+
+        <template iterator:it={arrayOfObjects} >
+            <div key={it.value.id}>
+                <h1 lwc:if={it.first} class="list-first"></h1>
+                <h1>{it.value.fname}</h1>
+                <h1 lwc:if={it.last} class="list-last"></h1>
+                
+            </div>
+
+
+        </template>
+
+</div>
+
+
+    </lightning-card>
+    
+</template>

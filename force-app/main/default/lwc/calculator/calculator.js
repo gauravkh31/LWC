@@ -7,6 +7,7 @@ export default class Calculator extends LightningElement {
     number1 = "";
     number2 = "";
     result = 0;
+    displayMessage = false;
 
 
     inputhandleChange(event) {
@@ -25,6 +26,8 @@ export default class Calculator extends LightningElement {
 
 
     buttonHandler(event) {
+
+        this.displayMessage = true;
         
         let label = event.target.label;
         if (label === "Add") {
