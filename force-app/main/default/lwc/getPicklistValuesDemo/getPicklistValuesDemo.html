@@ -1,0 +1,15 @@
+<template>
+    <template lwc:if={industryPicklist.data}>
+    <lightning-combobox
+            name="progress"
+            label="Account Industry"
+            value={selectedValue}
+            placeholder="Select Appropiate Industry"
+            options={industryPicklist.data.values}
+            onchange={handleChange} ></lightning-combobox> 
+            </template>
+
+    <p>Selected value is: {selectedValue}</p>
+    
+    
+</template>
