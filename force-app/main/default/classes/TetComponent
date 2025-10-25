@@ -1,0 +1,131 @@
+
+public with sharing class TetComponent {
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAccounts(String searchKey){
+        List<Account> accounts;
+        if(searchKey == null || String.isBlank(searchKey)){
+            accounts = [
+                SELECT Id, Name, AnnualRevenue,
+                       (SELECT Id FROM Opportunities) 
+                FROM Account
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        }
+        else{
+            String key = '%' + searchKey + '%';
+            accounts = [
+                SELECT Id, Name, AnnualRevenue,
+                       (SELECT Id FROM Opportunities)
+                FROM Account
+                WHERE Name LIKE :key
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        }
+        return accounts;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Opportunity> getOpportunities(String searchKey) {
+        List<Opportunity> opportunities;
+
+        if(searchKey == null ||String.isBlank(searchKey)) {
+            opportunities = [
+                SELECT Id, Name, Account.Id, Account.Name
+                FROM Opportunity
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        } else {
+            String key = '%' + searchKey + '%';
+            opportunities = [
+                SELECT Id, Name, Account.Id, Account.Name
+                FROM Opportunity
+                WHERE Name LIKE :key
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        }
+
+        return opportunities;
+    }
+
+    @AuraEnabled
+    public static Boolean linkOpportunityToAccount(Id opportunityId, Id accountId) {
+        try {
+            Opportunity opp = [SELECT Id, AccountId FROM Opportunity WHERE Id = :opportunityId LIMIT 1];
+            opp.AccountId = accountId;
+            update opp;
+            return true;
+        } catch(Exception e) {
+            throw new AuraHandledException('Error linking Opportunity: ' + e.getMessage());
+        }
+    }
+   
+}apex class -> 
+public with sharing class TETComponentClass {
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAccounts(String searchKey){
+        List<Account> accounts;
+        if(searchKey == null || String.isBlank(searchKey)){
+            accounts = [
+                SELECT Id, Name, AnnualRevenue,
+                       (SELECT Id FROM Opportunities) 
+                FROM Account
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        }
+        else{
+            String key = '%' + searchKey + '%';
+            accounts = [
+                SELECT Id, Name, AnnualRevenue,
+                       (SELECT Id FROM Opportunities)
+                FROM Account
+                WHERE Name LIKE :key
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        }
+        return accounts;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Opportunity> getOpportunities(String searchKey) {
+        List<Opportunity> opportunities;
+
+        if(searchKey == null ||String.isBlank(searchKey)) {
+            opportunities = [
+                SELECT Id, Name, Account.Id, Account.Name
+                FROM Opportunity
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        } else {
+            String key = '%' + searchKey + '%';
+            opportunities = [
+                SELECT Id, Name, Account.Id, Account.Name
+                FROM Opportunity
+                WHERE Name LIKE :key
+                ORDER BY CreatedDate DESC
+                LIMIT 5
+            ];
+        }
+
+        return opportunities;
+    }
+
+    @AuraEnabled
+    public static Boolean linkOpportunityToAccount(Id opportunityId, Id accountId) {
+        try {
+            Opportunity opp = [SELECT Id, AccountId FROM Opportunity WHERE Id = :opportunityId LIMIT 1];
+            opp.AccountId = accountId;
+            update opp;
+            return true;
+        } catch(Exception e) {
+            throw new AuraHandledException('Error linking Opportunity: ' + e.getMessage());
+        }
+    }
+   
+}

@@ -1,0 +1,161 @@
+<template>
+
+
+    <!-- // buttons div for new account and new opportunity -->
+    <div class="slds-p-right_xx-large">
+        <lightning-button-group>
+            <lightning-button label="Add Account" onclick={openAccountModel} variant="brand"></lightning-button>
+            <lightning-button label="Add Opportunity" onclick={openOpportunityModel}
+                variant="destructive"></lightning-button>
+
+        </lightning-button-group>
+    </div>
+
+
+    <!-- div for account name and search bar -->
+    <div style="width : 400px; height:80px;">
+
+        <lightning-layout horizontal-align="spread">
+            <lightning-layout-item padding="around-small">
+                <lightning-icon icon-name="standard:account"></lightning-icon>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div>Accounts</div>
+                <div class="dark-font">All Accounts</div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div class="slds-p-bottom_xx-small">
+                    <lightning-input type="text" placeholder="Search Accounts Here"
+                        onchange={accountSearchChangeHandler}></lightning-input>
+
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+    </div>
+
+
+    <!-- // acccounts grid  -->
+    <div class="c-container">
+        <lightning-layout horizontal-align="spread">
+
+            <template lwc:if={accounts}>
+                <template for:each={accounts} for:item="acc">
+                    <lightning-layout-item padding="around-small" key={acc.Id}>
+                        <div onclick={selectedCardHandler} class={getClassHighlightCss}>
+                            <lightning-card>
+
+                                <div>
+                                    <Strong>Name</Strong> - {acc.Name}
+                                </div>
+
+                                <template lwc:if={acc.Opportunities}>
+                                    <Strong>No. of Opp</Strong>- {acc.Opportunities.length}
+                                </template>
+                                <template lwc:else> <Strong>No. of Opp</Strong>- 0</template>
+                            </lightning-card>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </template>
+
+        </lightning-layout>
+    </div>
+
+
+    <!-- div for opportunity name and search bar -->
+    <div style="width : 400px; height:80px;">
+
+        <lightning-layout horizontal-align="spread">
+            <lightning-layout-item padding="around-small">
+                <lightning-icon icon-name="standard:opportunity"></lightning-icon>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div>Opportunities</div>
+                <div class="dark-font">All Opportunities</div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div class="slds-p-bottom_xx-small">
+                    <lightning-input type="text" placeholder="Search Opportunities Here"
+                        onchange={opportunitySearchChangeHandler}></lightning-input>
+
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+    </div>
+
+
+
+
+
+    <!-- // opportunities grid  -->
+    <div class="c-container">
+        <lightning-layout horizontal-align="spread">
+
+            <template lwc:if={opportunities}>
+                <template for:each={opportunities} for:item="opp">
+                    <lightning-layout-item padding="around-small" key={opp.Id}>
+                        <div>
+                            <lightning-card>
+
+                                <div><Strong>Name</Strong>- {opp.Name} </div>
+                                <div>
+                                    <template lwc:if={opp.AccountId}>
+                                        <Strong>Linked Account- </Strong>{opp.Account.Name}
+                                    </template>
+                                    <template lwc:else>
+                                        <Strong>Linked Account- </Strong>No Account Linked
+                                    </template>
+
+
+                                </div>
+
+                            </lightning-card>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </template>
+
+        </lightning-layout>
+    </div>
+
+
+
+
+    <!-- // account modal  -->
+    <div>
+        <template lwc:if={accountModelStatus}>
+            <lightning-card title="create account">
+                <lightning-record-form object-api-name={objectApiNameAccount} fields={fieldsAccount}
+                    onsuccess={handleSuccessAccount}>
+
+                </lightning-record-form>
+            </lightning-card>
+        </template>
+    </div>
+
+
+
+
+
+
+
+    <!-- // OPPORTUNITY modal  -->
+    <div>
+        <template lwc:if={opportunityModelStatus}>
+            <lightning-card title="create opportunity">
+                <lightning-record-form object-api-name={objectApiNameOpportunity} fields={fieldsOpportunity}
+                    onsuccess={handleSuccessOpportunity}>
+
+                </lightning-record-form>
+            </lightning-card>
+        </template>
+    </div>
+
+
+
+
+</template>
