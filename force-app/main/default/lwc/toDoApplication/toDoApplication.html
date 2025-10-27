@@ -13,7 +13,7 @@
         </lightning-input>
 
 
-        <lightning-input type="date"  label="Set End Date" field-level-help="Default End Date is Todays Date" onchange={changeHandler} name="taskdate" value={taskdate} ></lightning-input>
+        <lightning-input type="date"  label="Set End Date" field-level-help="Default End Date is Todays Date" onchange={changeHandler} name="taskdate" value={taskdate}  ></lightning-input>
     </div>
 
 
@@ -25,6 +25,9 @@
 
 
     </div>
+    <div>
+        <lightning-button onclick={buttonClick}>currect data console</lightning-button>
+    </div>
 </lightning-card>
 </div>
 
@@ -34,6 +37,29 @@
 <div class="slds-col">
 <lightning-card title="To Do List">
 
+
+    <div>
+        <template lwc:if={incompletetask}>
+            <template for:each={incompletetask} for:item="it">
+                <div key={it.taskname} class="slds-p-around_medium slds-p-left_medium" style="background-color: yellow;" >
+            <!-- <lightning-card class="card-color"> -->
+                
+                <div class="slds-grid slds-wrap">
+  <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12">
+   <div>{it.taskname}</div>
+   <div>{it.taskdate}</div>
+  </div>
+  <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                <lightning-button-icon icon-name="utility:delete"    variant="container" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:check"    variant="container" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+
+  </div>
+</div>
+        <!-- </lightning-card> -->
+        </div>
+        </template>
+        </template>
+    </div>
 </lightning-card>
 </div>
 
