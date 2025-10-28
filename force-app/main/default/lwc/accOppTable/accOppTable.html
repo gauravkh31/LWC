@@ -1,3 +1,23 @@
 <template>
+<lightning-card title="Account Table">
+    <lightning-datatable
+                key-field="id"
+                data={accountData}
+                columns={columns} max-row-selection="1"
+    single-row-selection-mode="checkbox" onrowselection={handleSelectedRow}>
+        </lightning-datatable>
+        </lightning-card>
+
+
+
+        <template lwc:if={isRowSelected}>
+            <lightning-card title="Opportunities Data">
+                 <lightning-datatable
+                key-field="id"
+                data={oppData}
+                columns={columnsOpp}>
+        </lightning-datatable>
+            </lightning-card>
+        </template>
     
 </template>
